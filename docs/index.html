@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stillness — Coloring Book</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/Stillness/assets/index-BezfEPfA.js"></script>
+  <link rel="stylesheet" crossorigin href="/Stillness/assets/index-DfToaM9K.css">
+</head>
+<body>
+
+<div id="toolbar">
+  <button id="hamburger-btn" title="Menu" aria-label="Toggle sidebar">&#9776;</button>
+  <div class="tg" role="toolbar" aria-label="Drawing tools">
+    <button class="tb active" data-tool="fill" title="Fill (F)" aria-label="Fill tool">&#9673; Fill</button>
+    <button class="tb" data-tool="brush" title="Brush (B)" aria-label="Brush tool">&#9998; Brush</button>
+    <button class="tb" data-tool="gradient" title="Gradient (G)" aria-label="Gradient tool">&#9680; Gradient</button>
+    <button class="tb" data-tool="eraser" title="Eraser (E)" aria-label="Eraser tool">&#9633; Eraser</button>
+    <button class="tb" data-tool="eyedropper" title="Pick Color (I)" aria-label="Pick color tool">&#9670; Pick</button>
+  </div>
+  <div class="tg" role="toolbar" aria-label="Zoom controls">
+    <button class="tb" id="zoom-in" title="Zoom In (+)" aria-label="Zoom in">+</button>
+    <button class="tb" id="zoom-out" title="Zoom Out (-)" aria-label="Zoom out">&#8722;</button>
+    <button class="tb" id="zoom-fit" title="Fit (0)" aria-label="Fit to screen">Fit</button>
+  </div>
+  <div class="tg" role="toolbar" aria-label="History">
+    <button class="tb" id="undo-btn" title="Undo (Ctrl+Z)" aria-label="Undo">&#8630; Undo</button>
+    <button class="tb" id="redo-btn" title="Redo (Ctrl+Shift+Z)" aria-label="Redo">&#8631; Redo</button>
+  </div>
+  <div style="flex:1"></div>
+  <span id="zoom-pct" style="font-size:11px;color:#666;padding-right:8px">100%</span>
+</div>
+
+<div id="main">
+<div id="sidebar-overlay"></div>
+<aside id="sidebar" role="complementary" aria-label="Tools and settings">
+  <div class="st">Patterns</div>
+  <div class="pgrid" id="pat-grid"></div>
+
+  <div class="st">Theme</div>
+  <div class="sgrid" id="theme-grid"></div>
+
+  <div class="st">Colors</div>
+  <div class="cgrid" id="col-grid"></div>
+
+  <div class="st">Custom Color</div>
+  <div class="sr"><label>H</label><input type="range" id="hsl-h" min="0" max="360" value="10"><span class="v" id="hh-v">10</span></div>
+  <div class="sr"><label>S</label><input type="range" id="hsl-s" min="0" max="100" value="60"><span class="v" id="hs-v">60</span></div>
+  <div class="sr"><label>L</label><input type="range" id="hsl-l" min="0" max="100" value="55"><span class="v" id="hl-v">55</span></div>
+  <div id="hsl-preview"></div>
+
+  <div id="brush-cfg">
+    <div class="st">Brush</div>
+    <div class="sr"><label>Sz</label><input type="range" id="b-size" min="1" max="40" value="5"><span class="v" id="bs-v">5</span></div>
+    <div class="sr"><label>Op</label><input type="range" id="b-opa" min="10" max="100" value="100"><span class="v" id="bo-v">100</span></div>
+  </div>
+
+  <div id="grad-cfg">
+    <div class="st">Gradient</div>
+    <div class="sgrid">
+      <button class="sbtn active" data-gt="linear">Linear</button>
+      <button class="sbtn" data-gt="radial">Radial</button>
+    </div>
+    <div class="grad-colors">
+      <div class="gc active" id="gc1"></div>
+      <div class="gc" id="gc2"></div>
+    </div>
+  </div>
+
+  <div class="st">Fill Sound</div>
+  <div class="sgrid" id="snd-grid"></div>
+  <div class="sr"><label>&#128266;</label><input type="range" id="vol" min="0" max="100" value="50"><span class="v" id="vol-v">50</span></div>
+
+  <div class="st">Export</div>
+  <button class="xbtn" id="x-png">Save as PNG</button>
+  <button class="xbtn sec" id="x-svg">Save as SVG</button>
+  <button class="xbtn sec" id="x-save">Save Progress</button>
+  <button class="xbtn sec" id="x-load">Load Progress</button>
+  <button class="xbtn sec" id="x-share-img">Share Image</button>
+  <button class="xbtn sec" id="x-share-url">Share Link</button>
+
+  <div class="st">My Gallery</div>
+  <div id="gallery-grid"></div>
+  <button class="xbtn sec" id="save-gallery">Save to Gallery</button>
+</aside>
+
+<div id="canvas-wrap" role="main">
+  <canvas id="canvas"></canvas>
+  <div id="zoom-lbl"></div>
+</div>
+</div>
+
+<div id="toast" aria-live="polite"></div>
+
+</body>
+</html>
