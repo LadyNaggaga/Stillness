@@ -45,7 +45,7 @@ export const PAT_NAMES = [
   'Butterfly','Celestial','Garden','Mosaic','Kente','Sashiko','Paisley'
 ];
 
-export const SND_NAMES = ['Chimes','Wind','Birds','Ocean'];
+export const SND_NAMES = ['Chimes','Wind','Birds','Ocean','Rain','Crystal','Harp','Zen Bowl'];
 
 export const S = {
   tool: 'fill',
