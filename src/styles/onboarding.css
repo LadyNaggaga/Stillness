@@ -1,0 +1,195 @@
+.onboarding-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 24, 0.85);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: onb-fade-in 0.4s ease forwards;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.onboarding-overlay.fade-out {
+  animation: onb-fade-out 0.35s ease forwards;
+}
+
+.onboarding-card {
+  background: #1e1e38;
+  border: 1px solid #2a2a4a;
+  border-radius: 16px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(108, 99, 255, 0.1);
+  width: 420px;
+  max-width: 90vw;
+  padding: 40px 36px 28px;
+  text-align: center;
+  position: relative;
+}
+
+/* Steps */
+.onboarding-step {
+  display: none;
+  animation: onb-slide-in 0.3s ease forwards;
+}
+
+.onboarding-step.active {
+  display: block;
+}
+
+.onboarding-step h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #e8e8f0;
+  margin-bottom: 8px;
+}
+
+.onboarding-step .onb-tagline {
+  font-size: 14px;
+  color: #6c63ff;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.onboarding-step p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #a0a0b8;
+  margin-bottom: 6px;
+}
+
+/* Emoji icons row */
+.onb-icons {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 20px 0;
+}
+
+.onb-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.onb-icon-item .onb-emoji {
+  font-size: 28px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #6c63ff15;
+  border: 1px solid #6c63ff33;
+  border-radius: 12px;
+}
+
+.onb-icon-item span:last-child {
+  font-size: 11px;
+  color: #8888a8;
+  font-weight: 500;
+}
+
+/* Decorative emoji for welcome */
+.onb-hero-emoji {
+  font-size: 48px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* Navigation */
+.onb-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+}
+
+.onb-skip {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: color 0.15s;
+}
+
+.onb-skip:hover {
+  color: #a0a0b8;
+}
+
+.onb-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.onb-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2a2a4a;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.onb-dot.active {
+  background: #6c63ff;
+  transform: scale(1.25);
+}
+
+.onb-next {
+  background: #6c63ff;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  padding: 8px 22px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.onb-next:hover {
+  background: #5a52dd;
+}
+
+.onb-next:active {
+  transform: scale(0.97);
+}
+
+/* Animations */
+@keyframes onb-fade-in {
+  from { opacity: 0 }
+  to   { opacity: 1 }
+}
+
+@keyframes onb-fade-out {
+  from { opacity: 1 }
+  to   { opacity: 0 }
+}
+
+@keyframes onb-slide-in {
+  from { opacity: 0; transform: translateY(10px) }
+  to   { opacity: 1; transform: translateY(0) }
+}
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .onboarding-overlay,
+  .onboarding-overlay.fade-out,
+  .onboarding-step,
+  .onb-dot,
+  .onb-next {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .onboarding-overlay {
+    opacity: 1;
+  }
+}

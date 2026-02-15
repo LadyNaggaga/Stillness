@@ -1,0 +1,33 @@
+{
+  "name": "stillness",
+  "version": "1.0.0",
+  "description": "**Breathe. Click. Color. Let the world dissolve.**",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "node tools/preview-pattern.js",
+    "preview:all": "node tools/preview-pattern.js --all",
+    "render:svg": "node tools/render-svg.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LadyNaggaga/Stillness.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LadyNaggaga/Stillness/issues"
+  },
+  "homepage": "https://github.com/LadyNaggaga/Stillness#readme",
+  "dependencies": {
+    "lz-string": "^1.5.0",
+    "paper": "^0.12.18"
+  },
+  "devDependencies": {
+    "jsdom": "^28.1.0",
+    "puppeteer": "^24.37.3",
+    "vite": "^7.3.1"
+  }
+}

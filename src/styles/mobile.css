@@ -1,0 +1,41 @@
+/* ── Hamburger button (hidden on desktop) ── */
+#hamburger-btn{display:none}
+
+@media(max-width:767px){
+  /* Hamburger toggle */
+  #hamburger-btn{
+    display:flex;align-items:center;justify-content:center;
+    background:transparent;border:1px solid #2a2a4a;border-radius:6px;
+    color:#c8c8d4;font-size:20px;width:44px;height:44px;
+    cursor:pointer;flex-shrink:0;padding:0;margin-right:4px;
+  }
+  #hamburger-btn:hover{background:#2a2a4a}
+
+  /* Toolbar: wrap buttons, enforce touch targets */
+  #toolbar{flex-wrap:wrap;height:auto;min-height:48px;padding:4px 8px;gap:4px}
+  .tg{flex-wrap:wrap;gap:4px;padding:0 4px}
+  .tb{min-width:44px;min-height:44px;padding:8px 10px;font-size:13px}
+
+  /* Sidebar → slide-out drawer */
+  #sidebar{
+    position:fixed;top:0;left:0;bottom:0;z-index:100;
+    width:260px;min-width:0;
+    transform:translateX(-100%);
+    transition:transform .25s ease;
+    box-shadow:none;
+  }
+  #sidebar.open{
+    transform:translateX(0);
+    box-shadow:4px 0 20px rgba(0,0,0,.5);
+  }
+
+  /* Overlay behind open drawer */
+  #sidebar-overlay{
+    display:none;position:fixed;inset:0;z-index:99;
+    background:rgba(0,0,0,.4);
+  }
+  #sidebar-overlay.show{display:block}
+
+  /* Canvas fills remaining space */
+  #canvas-wrap{width:100%;flex:1}
+}
